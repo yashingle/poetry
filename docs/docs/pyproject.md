@@ -173,9 +173,24 @@ If a VCS is being used for a package, the exclude field will be seeded with the 
 include = ["CHANGELOG.md"]
 ```
 
+You can also use inline tables for `include`:
+
+```toml
+[tool.poetry]
+# ...
+include = [
+    { include = "tests", format = "sdist" },
+    { include = "for_wheel.txt", format = "wheel" }
+]
+```
+
 ```toml
 exclude = ["my_package/excluded.py"]
 ```
+
+!!!note
+
+    You can either use strings or inline tables for `include` but not both.
 
 ## `dependencies` and `dev-dependencies`
 
